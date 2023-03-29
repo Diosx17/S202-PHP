@@ -42,18 +42,23 @@ if($_SERVER['REQUEST_METHOD']=='POST')
         $value = $_POST['request'];
         $cmd = "java -jar ".$jar_path." ".$value;
 
-        $result = exec($cmd);
+        $result = shell_exec($cmd);
         $result = explode("\n", $result);
         foreach($result as $value)
         {
+            utf8_decode($value);
+            if($value != "")
+            {
+                echo '<div class="rectangle">
+                <img src="img/test.jpg" alt="image">
+                <div class="article-content">
+                <a href="'.explode(':',$value).'"><h2>'.$value.'</h2></a>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor</p> 
+                </div>
+                </div>';
 
-        echo '<div class="rectangle">
-        <img src="img/test.jpg" alt="image">
-        <div class="article-content">
-        <a href="https://fr.vikidia.org/wiki/Histoire">'.$value.'</a>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor</p>            <h2>Le Moyen Âge | Archéologie | culture.fr</h2>
-        </div>
-        </div>';
+            }
+           
         }
     }
 }
