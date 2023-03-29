@@ -43,10 +43,10 @@ if($_SERVER['REQUEST_METHOD']=='POST')
         $cmd = "java -jar ".$jar_path." ".$value;
 
         $result = exec($cmd);
-        foreach()
+        $result = explode("\n", $result);
+        foreach($result as $value)
         {
 
-        }
         echo '<div class="rectangle">
         <img src="img/test.jpg" alt="image">
         <div class="article-content">
