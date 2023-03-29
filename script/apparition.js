@@ -29,7 +29,6 @@ window.addEventListener('load', function () {
     var nightmode = document.querySelector('.nightmode');
 
     searchButton.addEventListener('click', function (event) {
-        event.preventDefault();
         searchBox.classList.add('active');
         logo.classList.add('active');
         reveal.classList.add('active');

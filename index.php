@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -24,9 +24,9 @@
     </nav>
   </header>
 
-  <form method="POST" id="formulaire">
+  <form method="POST" id="formulaire" action="result.php">
     <div class="search-box">
-      <input type="text" name="q" placeholder="Veuillez entrer votre recherche">
+      <input type="text" name="request" placeholder="Veuillez entrer votre recherche">
       <button type="submit"><i class="fa fa-search"></i></button>
     </div>
   </form>
@@ -133,17 +133,9 @@
     
 
       <div class="find-items">
-       
-      <?php 
-        // si le formulaire a été soumis on ecrit dans la console
-        if(isset($_POST['q'])){
-          echo '<script>console.log("formulaire soumis")</script>';
-        }
-      
+      <h2 class="titreh2 result-title">Résultats pour [RECHERCHE]</h2>
         
-     
 
-          ?>
         
     
       </div>
