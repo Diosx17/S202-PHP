@@ -31,24 +31,30 @@
 
 <?php
 
+$jar_path = ('main.jar');
 
-for($i = 0;$i<15;++$i)
+
+if($_SERVER['REQUEST_METHOD']=='POST')
 {
-    if($_SERVER['REQUEST_METHOD']=='POST')
+
+    if(isset($_POST['request']))
     {
+        $value = $_POST['request'];
+        $cmd = "java -jar ".$jar_path." ".$value;
 
-        if(isset($_POST['request']))
+        $result = exec($cmd);
+        foreach()
         {
-            $value = $_POST['request'];
-            echo '<div class="rectangle">
-            <img src="img/test.jpg" alt="image">
-            <div class="article-content">
-            <a href="https://fr.vikidia.org/wiki/Histoire">'.$value.'</a>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor</p>            <h2>Le Moyen Âge | Archéologie | culture.fr</h2>
-            </div>
-            </div>';
-        }
 
+        }
+        echo '<div class="rectangle">
+        <img src="img/test.jpg" alt="image">
+        <div class="article-content">
+        <a href="https://fr.vikidia.org/wiki/Histoire">'.$value.'</a>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor</p>            <h2>Le Moyen Âge | Archéologie | culture.fr</h2>
+        </div>
+        </div>';
+        }
     }
 }
 ?>
