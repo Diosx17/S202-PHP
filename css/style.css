@@ -12,7 +12,7 @@ html{
 /*ici modifier les couleurs pour le dark theme si l'utilisateur a ses paramètres par défaut sur mode nuit*/
 @media (prefers-color-scheme: dark) {
     :root{
-        --background: black;
+        --background: #1e1e1e;
     }
   }
 

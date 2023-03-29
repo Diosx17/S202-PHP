@@ -30,7 +30,7 @@
 
 
 <?php
-
+    
 $jar_path = ('main.jar');
 
 
@@ -46,13 +46,16 @@ if($_SERVER['REQUEST_METHOD']=='POST')
         $result = explode("\n", $result);
         foreach($result as $value)
         {
-            utf8_decode($value);
+            
             if($value != "")
             {
+                $split = explode(' : ', $value);
+                $split = $split[0];
+
                 echo '<div class="rectangle">
                 <img src="img/test.jpg" alt="image">
                 <div class="article-content">
-                <a href="'.explode(':',$value).'"><h2>'.$value.'</h2></a>
+                <a href="'.$split.'" target="_blank"><h2>'.$split.'</h2></a>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor</p> 
                 </div>
                 </div>';
