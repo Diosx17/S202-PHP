@@ -40,10 +40,19 @@ if($_SERVER['REQUEST_METHOD']=='POST')
     if(isset($_POST['request']))
     {
         $value = $_POST['request'];
-        $cmd = "java -jar ".$jar_path." ".$value;
+        $cmd = "/home/pt202627/Téléchargements/data/usr/lib/jvm/jdk-19/bin/java -jar ".$jar_path." ".$value;
 
         $result = shell_exec($cmd);
         $result = explode("\n", $result);
+        if(empty($result[0]))
+        {
+            echo '<div class="rectangle">
+            <img src="img/test.jpg" alt="image">
+            <div class="article-content">
+                <h2 style="text-decoration:none; cursor:none;">Aucun résultat</h2>
+            </div>
+            </div>';
+        }
         foreach($result as $value)
         {
             
@@ -52,10 +61,36 @@ if($_SERVER['REQUEST_METHOD']=='POST')
                 $split = explode(' : ', $value);
                 $split = $split[0];
 
+                //recuperer le titre de la page dont le lien est $split
+                $page = file_get_contents($split);
+                $title = explode('<title>', $page);
+                $title = explode('</title>', $title[1]);
+                $title = $title[0];
+                $title = explode(" - ",$title);
+                $title = $title[0];
+
+                //recuperer l'image de la page depuis le lien $split
+                $page = file_get_contents($split);
+                $urls = explode('<meta property="og:image" content="', $page);
+                if(empty($urls[1]))
+                {
+                    $urls = explode('<meta property="og:image" content="', $page);
+                }
+                else
+                {         
+                    $urls = explode('" />', $urls[1]);
+                    $urls = $urls[0];
+    
+
+                }
+
+       
+
+
                 echo '<div class="rectangle">
-                <img src="img/test.jpg" alt="image">
+                <img src="'.$urls.'" alt="image" >
                 <div class="article-content">
-                <a href="'.$split.'" target="_blank"><h2>'.$split.'</h2></a>
+                <a href="'.$split.'" target="_blank"><h2>'.$title.'</h2></a>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor</p> 
                 </div>
                 </div>';
