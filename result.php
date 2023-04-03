@@ -5,6 +5,7 @@
     <link type="text/css" rel="stylesheet" href="css/style.css">
     <link type="text/css" rel="stylesheet" href="css/responsive.css">
     <script defer src="script/apparition.js"></script>
+    <script defer src="script/recupImages.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
 </head>
@@ -53,6 +54,9 @@ if($_SERVER['REQUEST_METHOD']=='POST')
             </div>
             </div>';
         }
+       
+        
+
         foreach($result as $value)
         {
             
@@ -69,26 +73,9 @@ if($_SERVER['REQUEST_METHOD']=='POST')
                 $title = explode(" - ",$title);
                 $title = $title[0];
 
-                //recuperer l'image de la page depuis le lien $split
-                $page = file_get_contents($split);
-                $urls = explode('<meta property="og:image" content="', $page);
-                if(empty($urls[1]))
-                {
-                    $urls = explode('<meta property="og:image" content="', $page);
-                }
-                else
-                {         
-                    $urls = explode('" />', $urls[1]);
-                    $urls = $urls[0];
-    
-
-                }
-
-       
-
-
+                
                 echo '<div class="rectangle">
-                <img src="'.$urls.'" alt="image" >
+                <img src="" alt="image" class="imageFromJS">
                 <div class="article-content">
                 <a href="'.$split.'" target="_blank"><h2>'.$title.'</h2></a>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor</p> 
