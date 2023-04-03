@@ -5,7 +5,6 @@
     <link type="text/css" rel="stylesheet" href="css/style.css">
     <link type="text/css" rel="stylesheet" href="css/responsive.css">
     <script defer src="script/apparition.js"></script>
-    <script defer src="script/recupImages.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
 </head>
@@ -31,7 +30,7 @@
 
 
 <?php
-    
+
 $jar_path = ('main.jar');
 
 
