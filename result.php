@@ -41,7 +41,7 @@ if($_SERVER['REQUEST_METHOD']=='POST')
     if(isset($_POST['request']))
     {
         $value = $_POST['request'];
-        $cmd = "/home/pt202627/Téléchargements/data/usr/lib/jvm/jdk-19/bin/java -jar ".$jar_path." ".$value;
+        $cmd = "java -jar ".$jar_path." ".$value;
 
         $result = shell_exec($cmd);
         $result = explode("\n", $result);
