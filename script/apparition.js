@@ -3,20 +3,57 @@
 *lorsque l'on clique sur le bouton cela lance cette fonction
 *on alterne à l'aide du modulo (variable i) entre le mode jour et le mode nuit
 */
+var couleurB = "#5C97FF";
+
+
+document.querySelector('#formulaire').addEventListener('submit', function() {
+    document.querySelector('#formulaire button[type="submit"]').classList.add('loading');
+  });
+
 i=0;
+var titreh2 = document.querySelector('.titreh2');
+var titre = document.querySelector('.result-title');
+var corps = document.body.querySelector("#corps");
 function appliqueNuit() {
-    if (i%2==0) {
+    if (i%2==0) {//mode nuit
     document.body.style.color = "rgb(0,0,0)";
-    document.body.style.backgroundColor = "rgb(30, 30, 30)";
+    document.body.style.backgroundColor = "rgb(60,0,80)";
+    couleurB = "#600080";
+    background = "rgb(60,0,80)"
+    if (corps){
+        corps.style.backgroundColor = "#070A26";
     }
-    else {
+    document.getElementById("logo").style.filter = "invert(100%)"; 
+    localStorage.setItem("modeSombre", "true");
+    titreh2.style.color = "rgb(255,255,255)";
+    if (titre) {
+        titre.style.color = 'white';
+      }
+    }
+    else {//mode jour
     document.body.style.color = "rgb(0, 0, 0)";
     document.body.style.backgroundColor = "#5C97FF";
+    if(corps){
+        corps.style.backgroundColor = "rgb(255,255,255)";
+    }
+    document.getElementById("logo").style.filter = "invert(0%)";
+    couleurB = "#5C97FF";
+    localStorage.setItem("modeSombre", "false");
+    titreh2.style.color = "rgb(0,0,0)";
+    if (titre) {
+        titre.style.color = 'black';
+      }
     }
     i++;
 }
 
-window.addEventListener('load', function () {
+var modeSombre = localStorage.getItem("modeSombre");
+
+if (modeSombre === "true") {
+  appliqueNuit();
+}
+
+/* window.addEventListener('load', function () {
     var searchButton = document.querySelector('.search-box button[type="submit"]');
     var searchBox = document.querySelector('.search-box');
     var logo = document.querySelector('#logo');
@@ -39,7 +76,19 @@ window.addEventListener('load', function () {
         ns.classList.add('suppr');
         nightmode.classList.add('suppr');
     });
-});
+}); */
+
+/*document.addEventListener('DOMContentLoaded', function() {
+    // Sélectionner la balise HTML à modifier
+    var maBalise = document.querySelector('.searchbox2');
+  
+    // Vérifier si la balise HTML est présente sur la page
+    if (maBalise) {
+      // Ajouter la classe à la balise HTML
+      maBalise.classList.add('active');
+    }
+  });*/
+  
 
 
 
@@ -87,19 +136,3 @@ function revealOnScroll() {
 }
 
 
-/*pour faire deux css différents : l'un pour le mode sombre et l'autre pour le mode clair
-// Récupérez la balise <link> de la feuille de style
-var styleSheet = document.getElementById('css/style.css');
-// Fonction pour changer la feuille de style
-function swapStyleSheet(sheet){
-    styleSheet.setAttribute('href', sheet);
-}
-// Événement pour activer le mode nuit
-document.getElementById('night-mode').addEventListener('click', function(){
-    swapStyleSheet('night.css');
-});
-// Événement pour désactiver le mode nuit
-document.getElementById('day-mode').addEventListener('click', function(){
-    swapStyleSheet('day.css');
-});
-*/

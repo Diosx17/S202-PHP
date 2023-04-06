@@ -24,6 +24,7 @@
     </nav>
   </header>
 
+
   <form method="POST" id="formulaire" action="result.php">
     <div class="search-box">
       <input type="text" name="request" placeholder="Veuillez entrer votre recherche">
@@ -129,15 +130,6 @@
             <p>Ici on peut mettre le titre de la page ou une description</p>
           </div>
         </div>
-      </div>
-    
-
-      <div class="find-items">
-      <h2 class="titreh2 result-title">Résultats pour [RECHERCHE]</h2>
-        
-
-        
-    
       </div>
     </div>
   </div>

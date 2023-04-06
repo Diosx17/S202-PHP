@@ -1,24 +1,23 @@
 html{
 	scroll-behavior: smooth;
-    background-color: var(--background); /*#bdd5ff*/
 }
 
+
 :root {
-    --background: #5C97FF;
-    --test : yellow;
+    --background: #5c97ff;
 }
 
 
 /*ici modifier les couleurs pour le dark theme si l'utilisateur a ses paramètres par défaut sur mode nuit*/
 @media (prefers-color-scheme: dark) {
     :root{
-        --background: #1e1e1e;
+        --background: black;
     }
-  }
-
+}
 
 body{
     height: 100%;
+    background-color: #5c97ff; /*#bdd5ff*/
 }
 
 *{
@@ -36,9 +35,11 @@ nav{
     /*background-color: rebeccapurple;*/
     height: 55px;
 }
+
+
 .navigation.active{
-    background-color: var(--background);
-    position: fixed;    
+    background-color: #5DBCD2;
+    position:fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -46,10 +47,11 @@ nav{
     transition: all 0.5s ease;
 }
 
+
 #logo { 
     position: absolute;
     left: 48%;
-    width: 250px;
+    width: 225px;
     transform: translateX(-50%);
     top: 125px; 
 }
@@ -136,6 +138,8 @@ input[type="checkbox"]{
     display: none;
 }*/
 /* fin Andy ------------------------------------------- 
+
+
 /*style pour la barre de recherche*/
 
 .search-box { /*nouvelle position de la barre de recherche*/
@@ -169,7 +173,7 @@ input[type="checkbox"]{
     border: none;
     font-size: 18px;
     padding: 10px;
-    background-color: transparent;
+    background-color: white;
     outline: none;
 }
 
@@ -190,6 +194,7 @@ table{
     margin: 100px auto;
     border-collapse: collapse;
 }
+
 td{
     border: 1px solid black;
     text-align: center;
@@ -221,6 +226,7 @@ td{
     margin-right: 50%;
     align-items: center;
 }
+
 .img-test img{
     margin-bottom: 10px;
 }
@@ -237,7 +243,7 @@ td{
     opacity: 0;
     animation: appear 3s ease-in-out forwards;
     position: relative;
-    color: #333;
+    color: rgb(0, 0, 0);
     font-family: 'Roboto', sans-serif;
     display: inline-block;
 }
@@ -247,9 +253,30 @@ td{
 }
 
 .result-title{
+    color: black; /*couleur inutile le js s'en occupe*/
     margin-left: 5%;
-    margin-top: 0;
+    margin-top: 3%;
 }
+
+.search-box button.loading i {
+    display: none;
+  }
+  
+  .search-box button.loading::after {
+    content: "";
+    display: inline-block;
+    width: 21px;
+    height: 21px;
+    margin-left: 10px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    border-top-color: #333;
+    animation: spin 0.8s linear infinite;
+  }
+  
+  @keyframes spin {
+    to {transform: rotate(360deg);}
+  }
       
 @keyframes appear {
 from {
@@ -300,10 +327,6 @@ to {
     box-shadow: 0 0 5px rgba(77, 144, 254, 0.5);
 }
 
-.find-items{
-    display:none;
-}
-
 .find-items.active{
     display: block;
     margin-top: 75px;
@@ -337,7 +360,7 @@ to {
 }
 
 .random-article .article p{
-    color: #202020;
+    color: rgb(129, 129, 129);
     font-family: BrownBold,sans-serif;
     font-size: 1rem;
     font-weight: 700;

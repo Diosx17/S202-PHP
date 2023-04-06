@@ -10,18 +10,12 @@
 </head>
 
 <header>
-    <nav class="navigation">
-      <a href="index.php"><img src="img/vikidia.png" alt="logo vikidia" id="logo"></a>
-      <div class="nightmode">
-          <input onclick=appliqueNuit() type="checkbox" id="mode-switch">
-          <label for="mode-switch" class="mode-switch-label">
-            <span class="mode-switch-icon"></span>
-          </label>
-      </div>
+    <nav class="navigation active">
+      <a href="index.php"><img src="img/vikidia.png" alt="logo vikidia" id="logo" class="active"></a>
     </nav>
   </header>
 <form method="POST" id="formulaire" action="result.php">
-    <div class="search-box">
+    <div class="search-box active">
         <input type="text" name="request" placeholder="Veuillez entrer votre recherche">
         <button type="submit"><i class="fa fa-search"></i></button>
     </div>
@@ -30,17 +24,21 @@
 
 
 <?php
-    
+
 $jar_path = ('main.jar');
 
 
 if($_SERVER['REQUEST_METHOD']=='POST')
 {
-
+            
+    echo'<div class="find-items active">
+    <h2 class="titreh2 result-title">Résultats pour [RECHERCHE]</h2>
+    </div>';
+    
     if(isset($_POST['request']))
     {
         $value = $_POST['request'];
-        $cmd = "/home/pt202627/Téléchargements/data/usr/lib/jvm/jdk-19/bin/java -jar ".$jar_path." ".$value;
+        $cmd = "java -jar ".$jar_path." ".$value;
 
         $result = shell_exec($cmd);
         $result = explode("\n", $result);
@@ -53,6 +51,8 @@ if($_SERVER['REQUEST_METHOD']=='POST')
             </div>
             </div>';
         }
+       
+
         foreach($result as $value)
         {
             
@@ -69,26 +69,9 @@ if($_SERVER['REQUEST_METHOD']=='POST')
                 $title = explode(" - ",$title);
                 $title = $title[0];
 
-                //recuperer l'image de la page depuis le lien $split
-                $page = file_get_contents($split);
-                $urls = explode('<meta property="og:image" content="', $page);
-                if(empty($urls[1]))
-                {
-                    $urls = explode('<meta property="og:image" content="', $page);
-                }
-                else
-                {         
-                    $urls = explode('" />', $urls[1]);
-                    $urls = $urls[0];
-    
-
-                }
-
-       
-
-
-                echo '<div class="rectangle">
-                <img src="'.$urls.'" alt="image" >
+                
+                echo '<div class="rectangle active">
+                <img src="" alt="image" class="imageFromJS">
                 <div class="article-content">
                 <a href="'.$split.'" target="_blank"><h2>'.$title.'</h2></a>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor</p> 

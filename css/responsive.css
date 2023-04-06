@@ -14,6 +14,12 @@
     .bloc-historique .icone:last-child{
         display: none;
     }
+    .rectangle{
+        width: 90%;
+    }
+    .rectangle .article-content p{
+        margin-right: 50px;
+    }
 
 }
 @media screen and (max-width:500px){
@@ -25,6 +31,9 @@
         margin-left: 15%;
         margin-right: 15%;
         justify-content: space-between;
+    }
+    .rectangle .article-content p{
+        margin-right: 10px;
     }
 }
 
@@ -38,12 +47,6 @@
     }
     .bloc-historique .icone:nth-child(5){
         display: none;
-    }
-}
-
-@media screen and (max-width:1500px){
-    .bloc-historique .icone{
-        margin-left: 0;
     }
 }
 
@@ -61,6 +64,9 @@
         margin-left: 17.5%;
         margin-right: 17.5%;
     }
+    h2{
+        font-size: 1em;
+    }
 }
 
 @media screen and (max-width: 1500px){
@@ -74,5 +80,8 @@
     }
     .search-box input{
         width: 50%;
+    }
+    .bloc-historique .icone{
+        margin-left: 0;
     }
 }
