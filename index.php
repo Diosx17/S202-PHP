@@ -5,7 +5,7 @@
 
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/responsive.css">
-  <script defer src="script/apparition.js"></script>
+  <script defer src="script/script.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>VikiSearch</title>
@@ -23,6 +23,7 @@
       </div>
     </nav>
   </header>
+
 
   <form method="POST" id="formulaire" action="result.php">
     <div class="search-box">
@@ -57,87 +58,8 @@
     <div id="corps">
       <h2 class="titreh2" id="notreselect">Découvrir</h2>
       <div class="random-article">
-        <div class="article">
-          <a href=""><img src="img/viki1.jpg" alt="image"></a>
-          <div class="article-content">
-            <p>Ici on peut mettre le titre de la page ou une description</p>
-          </div>
-        </div>
-        <div class="article">
-          <a href=""><img src="img/viki2.jpg" alt="image"></a>
-          <div class="article-content">
-            <p>Ici on peut mettre le titre de la page ou une description</p>
-          </div>
-        </div>
-        <div class="article">
-          <a href=""><img src="img/viki3.jpg" alt="image"></a>
-          <div class="article-content">
-            <p>Ici on peut mettre le titre de la page ou une description</p>
-          </div>
-        </div>
-        <div class="article">
-          <a href=""><img src="img/viki1.jpg" alt="image"></a>
-          <div class="article-content">
-            <p>Ici on peut mettre le titre de la page ou une description</p>
-          </div>
-        </div>
-        <div class="article">
-          <a href=""><img src="img/viki2.jpg" alt="image"></a>
-          <div class="article-content">
-            <p>Ici on peut mettre le titre de la page ou une description</p>
-          </div>
-        </div>
-        <div class="article">
-          <a href=""><img src="img/viki3.jpg" alt="image"></a>
-          <div class="article-content">
-            <p>Ici on peut mettre le titre de la page ou une description</p>
-          </div>
-        </div>
-        <div class="article">
-          <a href=""><img src="img/viki1.jpg" alt="image"></a>
-          <div class="article-content">
-            <p>Ici on peut mettre le titre de la page ou une description</p>
-          </div>
-        </div>
-        <div class="article">
-          <a href=""><img src="img/viki2.jpg" alt="image"></a>
-          <div class="article-content">
-            <p>Ici on peut mettre le titre de la page ou une description</p>
-          </div>
-        </div>
-        <div class="article">
-          <a href=""><img src="img/viki3.jpg" alt="image"></a>
-          <div class="article-content">
-            <p>Ici on peut mettre le titre de la page ou une description</p>
-          </div>
-        </div>
-        <div class="article">
-          <a href=""><img src="img/viki1.jpg" alt="image"></a>
-          <div class="article-content">
-            <p>Ici on peut mettre le titre de la page ou une description</p>
-          </div>
-        </div>
-        <div class="article">
-          <a href=""><img src="img/viki2.jpg" alt="image"></a>
-          <div class="article-content">
-            <p>Ici on peut mettre le titre de la page ou une description</p>
-          </div>
-        </div>
-        <div class="article">
-          <a href=""><img src="img/viki3.jpg" alt="image"></a>
-          <div class="article-content">
-            <p>Ici on peut mettre le titre de la page ou une description</p>
-          </div>
-        </div>
-      </div>
-    
-
-      <div class="find-items">
-      <h2 class="titreh2 result-title">Résultats pour [RECHERCHE]</h2>
         
-
-        
-    
+       
       </div>
     </div>
   </div>
