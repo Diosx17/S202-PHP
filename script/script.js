@@ -5,11 +5,6 @@
 */
 var couleurB = "#5C97FF";
 
-
-document.querySelector('#formulaire').addEventListener('submit', function() {
-    document.querySelector('#formulaire button[type="submit"]').classList.add('loading');
-  });
-
 i=0;
 var titreh2 = document.querySelector('.titreh2');
 var titre = document.querySelector('.result-title');
@@ -51,75 +46,16 @@ function appliqueNuit() {
     i++;
 }
 
+document.querySelector('#formulaire').addEventListener('submit', function() {
+    document.querySelector('#formulaire button[type="submit"]').classList.add('loading');
+  });
+
+
 var modeSombre = localStorage.getItem("modeSombre");
 
 if (modeSombre === "true") {
   appliqueNuit();
 }
-
-/* window.addEventListener('load', function () {
-    var searchButton = document.querySelector('.search-box button[type="submit"]');
-    var searchBox = document.querySelector('.search-box');
-    var logo = document.querySelector('#logo');
-    var reveal = document.querySelector('.reveal');
-    var randomarticle = document.querySelector('.random-article');
-    var blochistorique = document.querySelector('.bloc-historique');
-    var nav = document.querySelector('.navigation');
-    var finditems = document.querySelector('.find-items');
-    var ns = document.querySelector('#notreselect');
-    var nightmode = document.querySelector('.nightmode');
-
-    searchButton.addEventListener('click', function (event) {
-        searchBox.classList.add('active');
-        logo.classList.add('active');
-        reveal.classList.add('active');
-        randomarticle.classList.add('suppr');
-        blochistorique.classList.add('suppr');
-        nav.classList.add('active');
-        finditems.classList.add('active');
-        ns.classList.add('suppr');
-        nightmode.classList.add('suppr');
-    });
-}); */
-
-/*document.addEventListener('DOMContentLoaded', function() {
-    // Sélectionner la balise HTML à modifier
-    var maBalise = document.querySelector('.searchbox2');
-  
-    // Vérifier si la balise HTML est présente sur la page
-    if (maBalise) {
-      // Ajouter la classe à la balise HTML
-      maBalise.classList.add('active');
-    }
-  });*/
-  
-
-
-
-    //  Andy ------------------------------------------------------------
-    /*const checkbox = document.querySelector('#infobulle2');
-    var acc = "#2d2c2c"
-    checkbox.addEventListener('click', function() {
-        document.body.style.background = acc;
-        if (acc=="#2d2c2c"){
-            acc = "white"
-        }
-        else{
-            acc = "#2d2c2c"
-        }
-        
-    });*/
-    // fin Andy -----------------------------------------------------------
-    
-    //à continuer c'est pour la barre de recherche qui se met en haut quand on scroll
-    /*const searchBar = document.querySelector('.search-box');
-    window.addEventListener('scroll', () => {
-    if (window.scrollY > searchBar.offsetTop) {
-        searchBar.classList.add('fixed');
-    } else {
-        searchBar.classList.remove('fixed');
-    }
-    });*/
 
 
 window.addEventListener('scroll', revealOnScroll);
@@ -171,14 +107,36 @@ function writeOnHtmlLinks()
     {
         for(let i = 0; i < 12; i++)
         {
+
+            let url = tab[i]; // Remplacez cet URL par celui que vous voulez récupérer l'image
+
             //recupere le titre de la page
             let titre = tab[i].split("/")[tab[i].split("/").length - 1];
             titre = titre.split("_").join(" ");
             titre = decodeURI(titre);
 
-            //ajoute le lien et le titre dans le html
+            //on recup img
+            fetch(url, {mode: 'no-cors'})
+            .then(response => response.text())
+            .then(html => {
+                let parser = new DOMParser();
+                let doc = parser.parseFromString(html, "text/html");
+                let img = doc.querySelector('img');
+                console.log(img);
+                if (img) {
+                let imgUrl = img.src;
+                // Maintenant que vous avez l'URL de l'image, vous pouvez l'afficher sur votre page HTML
+                let imgElement = document.createElement('img');
+                imgElement.src = imgUrl;
+                console.log(imgUrl);
+                
+
+            //ajoute le lien et le titre et l'image dans le html
             if(document.getElementsByClassName('random-article')[0])
-            document.getElementsByClassName('random-article')[0].innerHTML += "<div class='article'><a href='" + tab[i] + "' target='_blank'><img src='./img/viki1.jpg' alt='image'></a><div class='article-content'><p><a class='liensrandom' href='"+tab[i]+"' target='_blank'>" + titre + "</a></p></div></div>";
+            document.getElementsByClassName('random-article')[0].innerHTML += "<div class='article'><a href='" + tab[i] + "' target='_blank'><img src='" + imgElement +'" alt="image aleatoire"></a><div class="article-content"><p><a class="liensrandom" href="'+tab[i]+"' target='_blank'>" + titre + "</a></p></div></div>";
+                }
+            })
+            .catch(error => console.log(error));
    
 
            
@@ -187,3 +145,8 @@ function writeOnHtmlLinks()
 }
 
 writeOnHtmlLinks();
+
+
+
+
+

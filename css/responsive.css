@@ -67,6 +67,9 @@
     h2{
         font-size: 1em;
     }
+    .random-article .article p{
+        font-size: 8px;
+    }
 }
 
 @media screen and (max-width: 1500px){
