@@ -14,10 +14,14 @@ i=0;
 var titreh2 = document.querySelector('.titreh2');
 var titre = document.querySelector('.result-title');
 var corps = document.body.querySelector("#corps");
+var nav = document.querySelector('.navigation.active');
 function appliqueNuit() {
     if (i%2==0) {//mode nuit
     document.body.style.color = "rgb(0,0,0)";
-    document.body.style.backgroundColor = "rgb(60,0,80)";
+    document.body.style.backgroundColor = "rgb(65,0,80)";
+    if(nav){
+        nav.style.backgroundColor = "rgb(40,0,80)";
+    }
     couleurB = "#600080";
     background = "rgb(60,0,80)"
     if (corps){
@@ -168,12 +172,12 @@ function writeOnHtmlLinks()
         for(let i = 0; i < 12; i++)
         {
             //recupere le titre de la page
-            console.log(tab[i]);
             let titre = tab[i].split("/")[tab[i].split("/").length - 1];
             titre = titre.split("_").join(" ");
             titre = decodeURI(titre);
 
             //ajoute le lien et le titre dans le html
+            if(document.getElementsByClassName('random-article')[0])
             document.getElementsByClassName('random-article')[0].innerHTML += "<div class='article'><a href='" + tab[i] + "' target='_blank'><img src='./img/viki1.jpg' alt='image'></a><div class='article-content'><p><a class='liensrandom' href='"+tab[i]+"' target='_blank'>" + titre + "</a></p></div></div>";
    
 

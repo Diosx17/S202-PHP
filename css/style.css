@@ -38,7 +38,7 @@ nav{
 
 
 .navigation.active{
-    background-color: #5DBCD2;
+    background-color: #4b7ed8;
     position:fixed;
     top: 0;
     left: 0;
@@ -173,8 +173,9 @@ input[type="checkbox"]{
     border: none;
     font-size: 18px;
     padding: 10px;
-    background-color: white;
+    background-color: transparent;
     outline: none;
+    border-radius: 50px;
 }
 
 .search-box button[type="submit"]{
