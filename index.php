@@ -58,6 +58,25 @@
     <div id="corps">
       <h2 class="titreh2" id="notreselect">Découvrir</h2>
       <div class="random-article">
+
+<?php
+//lire fichier txt et recuperer 12 liens aleatoires
+$lines = file('liens.txt');
+$rand_keys = array_rand($lines, 12);
+
+foreach ($rand_keys as $key) 
+{
+
+    $title = $lines[$key];
+    $title = urldecode($title);
+    $title = str_replace("https://fr.vikidia.org/wiki/", "", $title);
+    $title = str_replace("_", " ", $title);
+   
+
+    echo"<div class='article'><a href='".$lines[$key]."' target='_blank'><img src='' alt='image aleatoire'></a><div class='article-content'><p><a class='liensrandom' href='' target='_blank'>".$title."</a></p></div></div>";
+}
+
+?>
         
        
       </div>
